@@ -6,4 +6,6 @@ public interface MatchService {
     Match[] getMatches();
 
     void addMatch(Match match);
+
+    Match getMatch(Long id);
 }

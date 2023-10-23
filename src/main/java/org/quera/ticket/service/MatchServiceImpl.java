@@ -1,6 +1,7 @@
 package org.quera.ticket.service;
 
 import org.quera.ticket.customException.AddMatchException;
+import org.quera.ticket.customException.NotFoundException;
 import org.quera.ticket.models.Match;
 import org.quera.ticket.repository.MatchRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,5 +46,10 @@ public class MatchServiceImpl implements MatchService {
             throw new AddMatchException("Error: stadium is full in the given date");
 
         matchRepository.save(match);
+    }
+
+    @Override
+    public Match getMatch(Long id) {
+        return matchRepository.findById(id).orElseThrow(() -> new NotFoundException("Error: match not found"));
     }
 }
