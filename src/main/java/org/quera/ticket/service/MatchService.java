@@ -8,4 +8,6 @@ public interface MatchService {
     void addMatch(Match match);
 
     Match getMatch(Long id);
+
+    void deleteMatch(Long id);
 }

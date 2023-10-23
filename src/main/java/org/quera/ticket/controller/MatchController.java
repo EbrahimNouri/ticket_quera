@@ -37,4 +37,14 @@ public class MatchController {
             return ResponseEntity.status(404).body(e.getMessage());
         }
     }
+
+    @DeleteMapping("/{id}")
+    ResponseEntity deleteMatch(@PathVariable Long id){
+        try {
+            matchService.deleteMatch(id);
+            return ResponseEntity.ok().build();
+        }catch (NotFoundException e){
+            return ResponseEntity.status(404).body(e.getMessage());
+        }
+    }
 }

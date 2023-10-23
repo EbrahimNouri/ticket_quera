@@ -52,4 +52,9 @@ public class MatchServiceImpl implements MatchService {
     public Match getMatch(Long id) {
         return matchRepository.findById(id).orElseThrow(() -> new NotFoundException("Error: match not found"));
     }
+
+    @Override
+    public void deleteMatch(Long id) {
+        matchRepository.delete(getMatch(id));
+    }
 }
