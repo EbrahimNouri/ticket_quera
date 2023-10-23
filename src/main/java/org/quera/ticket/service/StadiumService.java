@@ -13,4 +13,6 @@ public interface StadiumService {
     Stadium getStadium(Long id);
 
     void delete(Long id);
+
+    boolean existsById(Long id);
 }
