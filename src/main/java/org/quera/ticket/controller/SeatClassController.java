@@ -3,10 +3,13 @@ package org.quera.ticket.controller;
 import org.quera.ticket.customException.NotFoundException;
 import org.quera.ticket.customException.SeatClassException;
 import org.quera.ticket.models.SeatClass;
+import org.quera.ticket.models.User;
 import org.quera.ticket.service.SeatClassService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -42,4 +45,17 @@ public class SeatClassController {
             return ResponseEntity.status(404).build();
         }
     }
+
+    @DeleteMapping("/{id}")
+    @PreAuthorize("hasRole('ADMIN')")
+    ResponseEntity deleteSeatClass(@PathVariable Long id) {
+        try {
+            seatClassService.deleteSeatClass(id);
+            return ResponseEntity.ok().build();
+        } catch (NotFoundException e) {
+            return ResponseEntity.status(404).build();
+        }
+    }
+
+
 }

@@ -8,4 +8,6 @@ public interface SeatClassService {
     void addSeatClass(SeatClass seatClass);
 
     SeatClass getSeatClass(Long id);
+
+    void deleteSeatClass(Long id);
 }

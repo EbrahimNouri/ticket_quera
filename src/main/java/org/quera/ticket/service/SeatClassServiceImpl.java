@@ -56,4 +56,14 @@ public class SeatClassServiceImpl implements SeatClassService {
         return seatClassRepository.findById(id).orElseThrow(NotFoundException::new);
     }
 
+    @Override
+    public void deleteSeatClass(Long id) {
+        try {
+            seatClassRepository.deleteById(id);
+        }catch (RuntimeException e){
+            throw new NotFoundException();
+        }
+
+    }
+
 }
