@@ -6,4 +6,6 @@ public interface SeatClassService {
     SeatClass[] getAllSeatClasses();
 
     void addSeatClass(SeatClass seatClass);
+
+    SeatClass getSeatClass(Long id);
 }

@@ -51,4 +51,9 @@ public class SeatClassServiceImpl implements SeatClassService {
 
     }
 
+    @Override
+    public SeatClass getSeatClass(Long id) {
+        return seatClassRepository.findById(id).orElseThrow(NotFoundException::new);
+    }
+
 }
