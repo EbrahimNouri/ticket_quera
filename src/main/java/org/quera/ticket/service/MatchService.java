@@ -10,4 +10,6 @@ public interface MatchService {
     Match getMatch(Long id);
 
     void deleteMatch(Long id);
+
+    boolean existsMatch(Long matchId);
 }

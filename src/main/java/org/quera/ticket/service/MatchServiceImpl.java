@@ -57,4 +57,9 @@ public class MatchServiceImpl implements MatchService {
     public void deleteMatch(Long id) {
         matchRepository.delete(getMatch(id));
     }
+
+    @Override
+    public boolean existsMatch(Long matchId) {
+        return matchRepository.existsById(matchId);
+    }
 }
