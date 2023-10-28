@@ -8,6 +8,4 @@ import java.util.List;
 public interface SeatClassRepository extends JpaRepository<SeatClass, Long> {
 
     boolean existsByMatch_Id(Long matchId);
-
-    List<SeatClass> findSeatClassesBy
 }

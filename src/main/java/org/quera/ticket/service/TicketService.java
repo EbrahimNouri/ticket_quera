@@ -8,4 +8,6 @@ public interface TicketService {
     Ticket[] getTickets(Long id);
 
     void buyTicket(User user, BuyTicketDto dto);
+
+    boolean reserved(Long seatNumber, Long matchId, Long seatId);
 }

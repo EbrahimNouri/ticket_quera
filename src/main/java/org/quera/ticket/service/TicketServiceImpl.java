@@ -71,7 +71,8 @@ public class TicketServiceImpl implements TicketService {
         TICKET_REPOSITORY.save(ticket);
     }
 
-    private boolean reserved(Long seatNumber, Long matchId, Long seatId) {
+    @Override
+    public boolean reserved(Long seatNumber, Long matchId, Long seatId) {
         return TICKET_REPOSITORY.existsTicket(seatNumber, matchId, seatId);
     }
 }
